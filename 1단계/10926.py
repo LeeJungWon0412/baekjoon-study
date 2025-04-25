@@ -1,2 +1,2 @@
-a = str(input())
+a = input()
 print(a+"??!")
