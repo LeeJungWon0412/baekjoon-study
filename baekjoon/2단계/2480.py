@@ -8,7 +8,7 @@ elif(b == c):
     print(1000 + b * 100)
 elif(c == a):
     print(1000 + c * 100)
-elif(a != b and b != c):
+else:
     if(a > b and a > c):
         print(a * 100)
     elif(b > a and b > c):
