@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 엑셀 파일 불러오기
-df = pd.read_excel("C:/Users/이정원/Desktop/SSU/데사/데사_공모전/데이터_자료/여가부/16년/(데이터) 04 2016 청소년 매체이용 및 유해환경 실태조사_통합데이터(170105)-공개 - 복사본.xlsx")
+df = pd.read_excel("C:/Users/이정원/Desktop/SSU/데사/데사_공모전/데이터_자료/여가부/16년/(데이터) 04 2016 청소년 매체이용 및 유해환경 실태조사_통합데이터(170105)-공개 - 복사본.xlsx", na_values=["#NULL!", "#N/A", ""])
 
 # 항목별 문항코드
 categories = {
@@ -21,6 +21,10 @@ region_map = {
     1: "서울", 2: "부산", 3: "대구", 4: "인천", 5: "광주", 6: "대전", 7: "울산", 8: "세종",
     9: "경기", 10: "강원", 11: "충북", 12: "충남", 13: "전북", 14: "전남", 15: "경북", 16: "경남", 17: "제주"
 }
+
+# DM2 정제 (1~17만 남기고 정수형 변환)
+df = df[df["DM2"].isin(region_map.keys())].copy()
+df["DM2"] = df["DM2"].astype(int)
 
 # 특정 카테고리 응답 수 세는 함수
 def count_yes(df_region, codes, is_runaway=False):
