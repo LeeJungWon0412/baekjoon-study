@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 엑셀 파일 불러오기
-df = pd.read_excel("C:/Users/이정원/Desktop/SSU/데사/데사_공모전/데이터_자료/여가부/20년/2020년 청소년 매체이용 및 유해환경 실태조사(데이터) - 복사본.xlsx")
+df = pd.read_excel("C:/Users/이정원/Desktop/SSU/데사/데사_공모전/데이터_자료/여가부/20년/2020년 청소년 매체이용 및 유해환경 실태조사(데이터) - 복사본.xlsx", na_values=["#NULL!", "#N/A", ""])
 
 # 종목별 문항 코드
 categories = {
@@ -28,8 +28,8 @@ df = df[df["DM7"].isin(region_map.keys())].copy()
 df["DM7"] = df["DM7"].astype(int)
 
 # '있다고 응답한 수' 계산 함수
-def count_yes(df_region, codes, is_runaway=False):
-    if is_runaway:
+def count_yes(df_region, codes):
+    if codes[0] == "YM21":
         return df_region[codes[0]].isin([2, 3, 4, 5]).sum()
     return (df_region[codes] == 1).any(axis=1).sum()
 
@@ -40,8 +40,8 @@ for cat, codes in categories.items():
     for code, name in region_map.items():
         region_df = df[df["DM7"] == code]
         total = len(region_df)
-        yes = count_yes(region_df, codes, is_runaway=(cat == "가출"))
-        
+        yes = count_yes(region_df, codes)
+
         rows.append({
             "종목": cat,
             "지역": name,
