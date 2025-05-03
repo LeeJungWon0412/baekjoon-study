@@ -23,6 +23,10 @@ region_map = {
     9: "경기", 10: "강원", 11: "충북", 12: "충남", 13: "전북", 14: "전남", 15: "경북", 16: "경남", 17: "제주"
 }
 
+# DM7 정제 (1~17만 남기고 정수형 변환)
+df = df[df["DM7"].isin(region_map.keys())].copy()
+df["DM7"] = df["DM7"].astype(int)
+
 # 특정 종목 응답자 수 세는 함수
 def count_yes(df_region, codes, is_runaway=False):
     if is_runaway:
