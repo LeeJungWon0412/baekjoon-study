@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 엑셀 파일 불러오기
-df = pd.read_excel("C:/Users/이정원/Desktop/SSU/데사/데사_공모전/데이터_자료/여가부/18년/(데이터)2018년 청소년 매체이용 및 유해환경 실태조사 - 복사본.xlsx")
+df = pd.read_excel("(데이터)2018년 청소년 매체이용 및 유해환경 실태조사.xlsx")
 
 # 항목별 문항코드
 categories = {
