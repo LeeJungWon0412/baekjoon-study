@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 파일 경로 및 데이터 불러오기
-data_path = "C:/Users/이정원/Desktop/SSU/데사/데사_공모전/데이터_자료/여가부/22년/2022년 청소년 매체이용 및 유해환경 실태조사(데이터) - 복사본.csv"
+data_path = "2022년 청소년 매체이용 및 유해환경 실태조사(데이터).csv"
 df = pd.read_csv(data_path, encoding="cp949", na_values=["#NULL!", "#N/A", ""])
 
 # 컬럼명을 문자열로 통일
