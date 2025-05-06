@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 엑셀 파일 불러오기
-df = pd.read_excel("C:/Users/이정원/Desktop/SSU/데사/데사_공모전/데이터_자료/여가부/16년/(데이터) 04 2016 청소년 매체이용 및 유해환경 실태조사_통합데이터(170105)-공개 - 복사본.xlsx", na_values=["#NULL!", "#N/A", ""])
+df = pd.read_excel("(데이터) 04 2016 청소년 매체이용 및 유해환경 실태조사_통합데이터(170105)-공개.xlsx", na_values=["#NULL!", "#N/A", ""])
 
 # 항목별 문항코드
 categories = {
